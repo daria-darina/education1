@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <img src="{{ details.image.url }}"  alt="">
+
+    <h5 class="">{{ details.name }}</h5>
+    <p class="">{{ details.task }}</p>
+    <p class="">{{ details.university }}</p>
+    <p class="">{{ details.duration }}</p>
+    <p class="">{{ details.date_of_start }}</p>
+    <p class="">{{ details.date_of_finish }}</p>
+    <p class="">{{ details.description }}</p>
+        </div>
+
+{% endblock %}

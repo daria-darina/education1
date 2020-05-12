@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    {% for event in events %}
+        <div class="card" style="width: 18rem;">
+            <img src="{{ event.image.url }}" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">{{ event.name }}</h5>
+                    <p class="card-text">{{ event.task }}</p>
+                    <p class="card-text">{{ event.university }}</p>
+                    <a href="{% url 'app:details' event.id %}" class="btn btn-primary">Подробнее</a>
+                </div>
+        </div>
+
+    {% endfor %}
+</div>
+
+{% endblock %}
