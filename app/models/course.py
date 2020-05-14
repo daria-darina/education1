@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 
 class Course(models.Model):
-    student = models.ForeignKey(User, on_delete=models.CASCADE)
+    student = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     description_course = models.ForeignKey(DescriptionCourse, verbose_name = 'Описание курса', on_delete=models.CASCADE)
     lesson = models.ForeignKey(Lesson, verbose_name='Урок', on_delete=models.CASCADE)
     test = models.URLField(verbose_name='Тест')

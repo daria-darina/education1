@@ -1,0 +1,10 @@
+#myCarousel{
+    height: 400px
+    margin-top: 56px;
+    margin-bottom: 4rem;
+}
+
+.carousel-item {
+
+    height: 400px;
+}

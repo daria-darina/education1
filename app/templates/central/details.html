@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
+<link rel="stylesheet" href="{% static 'central/css/details.css' %}" type="text/css"/>
 <div class="container">
-    <img src="{{ details.image.url }}"  alt="">
+    <img src="{{ details.image.url }}" class="image" alt="">
 
     <h5 class="">{{ details.name }}</h5>
     <p class="">{{ details.task }}</p>
@@ -10,6 +12,8 @@
     <p class="">{{ details.date_of_start }}</p>
     <p class="">{{ details.date_of_finish }}</p>
     <p class="">{{ details.description }}</p>
+
+    <button type="submit" class="btn btn-primary" id="get">Записаться на курс</button>
         </div>
 
 {% endblock %}
