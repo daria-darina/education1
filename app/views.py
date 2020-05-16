@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect, reverse
 from django.contrib.auth import login, authenticate, logout
 from django.views import View, generic
-
+from django.views.decorators.http import require_http_methods
+from django.contrib.auth.decorators import login_required
 from .models import DescriptionCourse
 from .models import Lesson
 
@@ -133,6 +134,47 @@ class CourseWorkView(View):
 
         return response
 
+class DiplomaView(View):
+
+    def get(self, request):
+        return render(request, 'central/diploma.html')
+
+    def post(self, request):
+        university = request.POST['university']
+        institute = request.POST['institute']
+        kafedra = request.POST['kafedra']
+        way = request.POST['way']
+        profile = request.POST['profile']
+        task = request.POST['task']
+        number = request.POST['number']
+        group = request.POST['group']
+        year = request.POST['year']
+        student = request.POST['student']
+        degree = request.POST['degree']
+        teacher = request.POST['teacher']
+        degree_head = request.POST['degree_head']
+        head_teacher = request.POST['head_teacher']
+        city = request.POST['city']
+        introduction = request.POST['introduction']
+        body = request.POST['body']
+        conclusion = request.POST['conclusion']
+        literature = request.POST['literature']
+
+        document = DocxTemplate('дипломная.docx')
+        context = {'university': university, 'institute': institute, 'kafedra': kafedra, 'way': way,
+                   'profile': profile, 'task': task, 'number': number, 'group': group, 'year': year,
+                   'student': student, 'degree': degree, 'teacher': teacher, 'degree_head': degree_head,
+                   'head_teacher': head_teacher,'city': city,'introduction': introduction, 'body': body,
+                   'conclusion': conclusion, 'literature': literature}
+        document.render(context)
+        # document.save("generated_doc.docx")
+
+        response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
+        response['Content-Disposition'] = 'attachment; filename=download.docx'
+        document.save(response)
+
+        return response
+
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Course
@@ -150,9 +192,10 @@ class CourseByUserListView(LoginRequiredMixin, generic.ListView):
 
 #выводит все уроки курса, на кот:3. щаписан поль-ль
 class LessonView(View):
-        def get(self, request):
-            lessons = Lesson.objects.all()
-            return render(request, 'central/lesson.html', {'lessons': lessons})
+    def get(self, request):
+        lessons = Lesson.objects.all()
+        lesson_form = LessonForm()
+        return render(request, 'central/lesson.html', {'lessons': lessons, 'lesson_form': lesson_form})
 
 
 def add_to_course(request, pk):
@@ -164,13 +207,11 @@ def add_to_course(request, pk):
 from .forms import LessonForm
 
 
+@login_required
+@require_http_methods(['POST'])
 def Upload_file(request):
-  if request.method == 'POST':
     lesson_form = LessonForm(request.POST, request.FILES)
     if lesson_form.is_valid():
-      lesson_form.save()
-      return HttpResponseRedirect('/')
-  else:
-    lesson_form = LessonForm()
+        lesson_form.save()
 
-  return render(request, 'central/lesson.html', {'lesson_form': lesson_form})
+    return HttpResponseRedirect(reverse('app:lesson'))

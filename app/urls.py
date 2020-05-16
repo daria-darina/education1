@@ -11,7 +11,7 @@ from .views import (
     CourseByUserListView,
     LessonView,
     CourseWorkView,
-
+    DiplomaView,
     add_to_course,
 )
 
@@ -25,9 +25,10 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name='logout'),
     path('article/', TestView.as_view(), name='article'),
     path('coursework/', CourseWorkView.as_view(), name='coursework'),
+    path('diploma/', DiplomaView.as_view(), name='diploma'),
     path('my_courses/', CourseByUserListView.as_view(), name='my_courses'),
     path('lesson/', LessonView.as_view(), name='lesson'),
 
-
+    path('upload-video', views.Upload_file, name='upload-video'),
     path('add-to-course/<int:pk>/', add_to_course, name='add-to-course'),
 ]

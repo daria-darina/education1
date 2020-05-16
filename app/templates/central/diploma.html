@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'central/css/style.css' %}" type="text/css"/>
+
+
+<p class="title">Дипломная работа</p>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+    <label for="exampleInputEmail1">Университет</label>
+    <input type="text" name="university" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+        <div class="form-group">
+            <label for="exampleInputEmail2">Институт</label>
+            <input type="text" name="institute" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail3">Кафедра</label>
+            <input type="text" name="kafedra" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail4">Направление</label>
+            <input type="text" name="way" class="form-control" id="exampleInputEmail4" aria-describedby="emailHelp">
+        </div>
+    <div class="form-group">
+            <label for="exampleInputEmail5">Профиль</label>
+            <input type="text" name="profile" class="form-control" id="exampleInputEmail5" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail6">Тема курсовой работы</label>
+            <input type="text" name="task" class="form-control" id="exampleInputEmail6" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail7">Курс</label>
+            <textarea type="text" name="number"  class="form-control" rows="1" id="exampleInputEmail7"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail8">Номер группы</label>
+            <textarea type="text" name="group"  class="form-control" rows="1" id="exampleInputEmail8"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail9">Год</label>
+            <textarea type="text" name="year"  class="form-control" rows="1" id="exampleInputEmail9"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmai10">Фио студента</label>
+            <textarea type="text" name="student"  class="form-control" rows="1" id="exampleInputEmai10"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail11">Ученая степень преподавателя</label>
+            <textarea type="text" name="degree"  class="form-control" rows="1" id="exampleInputEmail11"></textarea>
+        </div>
+    <div class="form-group">
+            <label for="exampleInputEmail12">Фио преподавателя</label>
+            <textarea type="text" name="teacher"  class="form-control" rows="1" id="exampleInputEmail12"></textarea>
+        </div>
+    <div class="form-group">
+            <label for="exampleInputEmail13">Ученая степень заведующего кафедрой</label>
+            <textarea type="text" name="degree_head"  class="form-control" rows="1" id="exampleInputEmail13"></textarea>
+        </div>
+    <div class="form-group">
+            <label for="exampleInputEmail14">Фио заведующего кафедрой</label>
+            <textarea type="text" name="head_teacher"  class="form-control" rows="1" id="exampleInputEmail14"></textarea>
+        </div>
+    <div class="form-group">
+            <label for="exampleInputEmail15">Город</label>
+            <textarea type="text" name="city"  class="form-control" rows="1" id="exampleInputEmail15"></textarea>
+        </div>
+    <div class="form-group">
+            <label for="exampleInputEmail16">Введение</label>
+            <textarea type="text" name="introduction"  class="form-control" rows="3" id="exampleInputEmail16"></textarea>
+        </div>
+    <div class="form-group">
+            <label for="exampleInputEmail17">Основная часть</label>
+            <textarea type="text" name="body"  class="form-control" rows="7" id="exampleInputEmail17"></textarea>
+        </div>
+    <div class="form-group">
+            <label for="exampleInputEmail18">Заключение</label>
+            <textarea type="text" name="conclusion"  class="form-control" rows="3" id="exampleInputEmail18"></textarea>
+        </div>
+    <div class="form-group">
+            <label for="exampleInputEmail19">Спирсок использованных источников</label>
+            <textarea type="text" name="literature"  class="form-control" rows="3" id="exampleInputEmail19"></textarea>
+        </div>
+
+<button type="submit" class="btn btn-primary" id="get">Получить файл</button>
+
+</form>
+
+
+{% endblock %}

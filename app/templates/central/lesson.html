@@ -3,19 +3,19 @@
 {% block content %}
 <div class="container">
 {% for lesson in lessons %}
-    {% if lesson.video %}
-    <iframe width="560" height="315" src="{{ lesson.video }}" frameborder="0" allowfullscreen></iframe>
-    {% endif %}
-    <h5>{{ lesson.task }}</h5>
-    <p>{{ lesson.name }}</p>
-    <p>{{ lesson.teacher }}</p>
-    <a href="{{ lesson.homework }}">{{ lesson.homework }}</a>
-    <p>{{ lesson.mark }}</p>
-    <form method="post" enctype="multipart/form-data">
+    {% video lesson.video as my_video %}
+      {% video my_video "large" %}
+    {% endvideo %}
+    <h5>Тема: {{ lesson.task }}</h5>
+    <p>Название урока: {{ lesson.name }}</p>
+    <p>Преподаватель: {{ lesson.teacher }}</p>
+    <p>Домашнее задание: </p><a href="{{ lesson.homework }}">{{ lesson.homework }}</a>
+    <p>Текущая оценка: {{ lesson.mark }}</p>
+    <form method="post" action="{% url 'app:upload-video' %}" enctype="multipart/form-data">
     {% csrf_token %}
     {{ lesson_form.as_p }}
-    <button type="submit">Загрузить</button>
-  </form>
+    <button type="submit" class="btn btn-primary">Загрузить</button>
+    </form>
      {% endfor %}
 </div>
 
