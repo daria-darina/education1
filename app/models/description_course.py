@@ -1,7 +1,8 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 class DescriptionCourse(models.Model):
+
     name = models.CharField(verbose_name='Название курса',max_length=256)
     task = models.CharField(verbose_name='Тема',max_length=50)
     university = models.CharField(verbose_name='Университет', max_length=256)
@@ -10,6 +11,7 @@ class DescriptionCourse(models.Model):
     date_of_finish = models.DateField(verbose_name='Дата окончания курса')
     description = models.TextField(verbose_name='Описание курса')
     image = models.ImageField(verbose_name='Изображение')
+
 
 
     class Meta:

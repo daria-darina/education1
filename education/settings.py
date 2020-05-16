@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'embed_video',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL = '/'
+TEMPLATE_CONTEXT_PROCESSORS = (
+
+    'django.core.context_processors.request',
+)

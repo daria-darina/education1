@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'central/css/style.css' %}" type="text/css"/>
+
+
+<p class="title">Напиши свою статью!</p>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+    <label for="exampleInputEmail1">Университет</label>
+    <input type="text" name="university" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+        <div class="form-group">
+            <label for="exampleInputEmail2">Институт</label>
+            <input type="text" name="institute" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail3">Кафедра</label>
+            <input type="text" name="kafedra" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail4">Направление</label>
+            <input type="text" name="way" class="form-control" id="exampleInputEmail4" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail5">Тема курсовой работы</label>
+            <input type="text" name="task" class="form-control" id="exampleInputEmail5" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail6">Курс</label>
+            <textarea type="text" name="number"  class="form-control" rows="3" id="exampleInputEmail6"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail7">Номер группы</label>
+            <textarea type="text" name="group"  class="form-control" rows="3" id="exampleInputEmail7"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail8">Год</label>
+            <textarea type="text" name="year"  class="form-control" rows="7" id="exampleInputEmail8"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail9">Фио студента</label>
+            <textarea type="text" name="student"  class="form-control" rows="3" id="exampleInputEmail9"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail10">Ученая степень преподавателя</label>
+            <textarea type="text" name="degree"  class="form-control" rows="3" id="exampleInputEmail10"></textarea>
+        </div>
+    <div class="form-group">
+            <label for="exampleInputEmail11">Фио преподавателя</label>
+            <textarea type="text" name="teacher"  class="form-control" rows="3" id="exampleInputEmail11"></textarea>
+        </div>
+    <div class="form-group">
+            <label for="exampleInputEmail12">Город</label>
+            <textarea type="text" name="city"  class="form-control" rows="3" id="exampleInputEmail12"></textarea>
+        </div>
+    <div class="form-group">
+            <label for="exampleInputEmail13">Введение</label>
+            <textarea type="text" name="introduction"  class="form-control" rows="3" id="exampleInputEmail13"></textarea>
+        </div>
+    <div class="form-group">
+            <label for="exampleInputEmail14">Основная часть</label>
+            <textarea type="text" name="body"  class="form-control" rows="3" id="exampleInputEmail14"></textarea>
+        </div>
+    <div class="form-group">
+            <label for="exampleInputEmail15">Заключение</label>
+            <textarea type="text" name="conclusion"  class="form-control" rows="3" id="exampleInputEmail15"></textarea>
+        </div>
+    <div class="form-group">
+            <label for="exampleInputEmail16">Спирсок использованных источников</label>
+            <textarea type="text" name="literature"  class="form-control" rows="3" id="exampleInputEmail16"></textarea>
+        </div>
+
+<button type="submit" class="btn btn-primary" id="get">Получить файл</button>
+
+</form>
+
+
+{% endblock %}

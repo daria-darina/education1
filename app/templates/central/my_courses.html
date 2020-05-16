@@ -3,13 +3,13 @@
 {% block content %}
     <h1>Мои Курсы</h1>
 
-    {% if course_list %}
+    {% if course_user_list %}
     <ul>
 
-      {% for course in course_list %}
-
-        <a href="{% url 'app:my_courses' %}">{{course.description_course.name}}</a>
-
+      {% for course in course_user_list %}
+<li>
+        <a href="{% url 'app:lesson' %}">{{course.description_course.name}}</a>
+</li>
       {% endfor %}
     </ul>
 

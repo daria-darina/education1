@@ -20,3 +20,11 @@ class UserRegistrationForm(forms.ModelForm):
 class LoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
+
+
+from .models import Lesson
+
+class LessonForm(forms.ModelForm):
+  class Meta:
+    model = Lesson
+    fields = ['answer']

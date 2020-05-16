@@ -13,7 +13,12 @@
     <p class="">{{ details.date_of_finish }}</p>
     <p class="">{{ details.description }}</p>
 
-    <button type="submit" class="btn btn-primary" id="get">Записаться на курс</button>
+    <form method="post">
+    {% csrf_token %}
+
+<a href="{% url 'app:add-to-course' details.pk %}" type="submit" class="btn btn-primary" id="get">Записаться на курс</a>
+
+</form>
         </div>
 
 {% endblock %}
